@@ -1,6 +1,7 @@
 # homebridge-people-textfile
 This is a plugin for homebridge. It monitors who is at home, based on searching for names in a textfile.
 It is based on the excellent plugin "homebridge-people" from PeteLawrence.
+There is many unused code and by far not perfect -but it does its job.
 
 # Installation
 
