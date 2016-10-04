@@ -1,21 +1,87 @@
 {
-  "name": "homebridge-people",
-  "version": "0.3.5",
-  "description": "Homebridge plugin that provides details of who is in a Home",
-  "keywords": [
-    "homebridge-plugin"
+  "_args": [
+    [
+      {
+        "raw": "homebridge-people-textfile",
+        "scope": null,
+        "escapedName": "homebridge-people-textfile",
+        "name": "homebridge-people-textfile",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      ""
+    ]
   ],
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/PeteLawrence/homebridge-people.git"
+  "_from": "homebridge-people-textfile@latest",
+  "_id": "homebridge-people-textfile@0.0.1",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/homebridge-people-textfile",
+  "_nodeVersion": "5.6.0",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/homebridge-people-textfile-0.0.1.tgz_1461046219033_0.09345591720193624"
   },
-  "engines": {
-    "node": ">=0.12.0",
-    "homebridge": ">=0.2.0"
+  "_npmUser": {
+    "name": "clonedevil",
+    "email": "clonedevil@gmx.de"
+  },
+  "_npmVersion": "3.6.0",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "homebridge-people-textfile",
+    "scope": null,
+    "escapedName": "homebridge-people-textfile",
+    "name": "homebridge-people-textfile",
+    "rawSpec": "",
+    "spec": "latest",
+    "type": "tag"
+  },
+  "_requiredBy": [
+    "#USER"
+  ],
+  "_resolved": "https://registry.npmjs.org/homebridge-people/-/homebridge-people-textfile0.0.1.tgz",
+  "_shasum": "2df7f781b205c21dd1852ae604af1d22b916001a",
+  "_shrinkwrap": null,
+  "_spec": "homebridge-people-textfile",
+  "_where": "",
+  "bugs": {
+    "url": "https://github.com/PeteLawrence/homebridge-people/issues"
   },
   "dependencies": {
     "moment": "^2.11.2",
-    "node-persist": "0.0.8",
-    "ping": "^0.1.10"
-  }
+    "node-persist": "0.0.8"
+  },
+  "description": "Homebridge plugin that provides details of who is in a Home",
+  "devDependencies": {},
+  "directories": {},
+  "dist": {
+    "shasum": "2df7f781b205c21dd1852ae604af1d22b916001a",
+    "tarball": "https://registry.npmjs.org/homebridge-people/-/homebridge-people-0.3.5.tgz"
+  },
+  "engines": {
+    "homebridge": ">=0.2.0",
+    "node": ">=0.12.0"
+  },
+  "gitHead": "91f44a8369bc157c2e69e7f2af1e530783053fc9",
+  "homepage": "https://github.com/PeteLawrence/homebridge-people#readme",
+  "keywords": [
+    "homebridge-plugin"
+  ],
+  "maintainers": [
+    {
+      "name": "clonedevil",
+      "email": "clonedevil@gmx.de"
+    }
+  ],
+  "name": "homebridge-people-textfile",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/CloneDevil/homebridge-people-textfile.git"
+  },
+  "scripts": {},
+  "version": "0.0.1"
 }
