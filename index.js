@@ -1,7 +1,10 @@
 var ping = require('ping');
 var moment = require('moment');
+var fs = require('fs');
+var iconv = require('iconv-lite');
 
 var Service, Characteristic, HomebridgeAPI;
+
 
 
 module.exports = function(homebridge) {
@@ -105,6 +108,18 @@ PeopleAccessory.prototype.getAnyoneStateFromCache = function() {
     if (isActive) {
       return true;
     }
+
+	var data = fs.readFileSync("/tmp/Homebridge.txt", 'binary');
+	var output = iconv.decode(data, "ISO-8859-1");
+
+	if (output.length > 2) {
+		return true;
+		        //Trigger an update to the Homekit service associated with 'ANYONE'
+        var anyoneService = this.getServiceForTarget('ANYONE');
+        var anyoneState = this.getAnyoneStateFromCache();
+        anyoneService.getCharacteristic(Characteristic.OccupancyDetected).setValue(anyoneState);
+	}
+
   }
 
   return false;
@@ -114,8 +129,14 @@ PeopleAccessory.prototype.getAnyoneStateFromCache = function() {
 PeopleAccessory.prototype.pingHosts = function() {
   this.people.forEach(function(personConfig) {
 
-    var target = this.getTarget(personConfig);
-    ping.sys.probe(target, function(state){
+        var target = this.getTarget(personConfig);
+	var data = fs.readFileSync("/tmp/Homebridge.txt", 'binary');
+	var output = iconv.decode(data, "ISO-8859-1");
+	if(output.indexOf(target) > -1){
+		state = 1;
+			} else {
+		state = 0;}
+		
       //If target is alive update the last seen time
       if (state) {
         this.storage.setItem('person_' + target, Date.now());
@@ -136,7 +157,7 @@ PeopleAccessory.prototype.pingHosts = function() {
         var anyoneState = this.getAnyoneStateFromCache();
         anyoneService.getCharacteristic(Characteristic.OccupancyDetected).setValue(anyoneState);
       }
-    }.bind(this));
+    
   }.bind(this));
 
   setTimeout(PeopleAccessory.prototype.pingHosts.bind(this), 1000);
@@ -160,8 +181,8 @@ PeopleAccessory.prototype.targetIsActive = function(target) {
 
   if (lastSeenUnix) {
     var lastSeenMoment = moment(lastSeenUnix);
-    var activeThreshold = moment().subtract(this.threshold, 'm');
-    //var activeThreshold = moment().subtract(2, 's');
+    //var activeThreshold = moment().subtract(this.threshold, 'm');
+    var activeThreshold = moment().subtract(1, 's');
 
     var isActive = lastSeenMoment.isAfter(activeThreshold);
 
